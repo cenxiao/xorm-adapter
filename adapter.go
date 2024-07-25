@@ -24,6 +24,7 @@ import (
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/lib/pq"
+	"xorm.io/builder"
 	"xorm.io/xorm"
 )
 
@@ -489,7 +490,7 @@ func (a *Adapter) filterQuery(session *xorm.Session, filter Filter) *xorm.Sessio
 		case 0:
 			continue
 		case 1:
-			session.And(filterValue[idx].col+" = ?", filterValue[idx].val[0])
+			session.And(builder.Eq{filterValue[idx].col: filterValue[idx].val[0]})
 		default:
 			session.In(filterValue[idx].col, filterValue[idx].val)
 		}
