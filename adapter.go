@@ -21,11 +21,11 @@ import (
 	"runtime"
 	"strings"
 
+	"gitea.com/cenxiao/xorm"
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/lib/pq"
 	"xorm.io/builder"
-	"xorm.io/xorm"
 )
 
 // TableName  if tableName=="" , adapter will use default tablename "casbin_rule".
